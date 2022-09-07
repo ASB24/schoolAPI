@@ -28,6 +28,12 @@ namespace classAPI.Models
         [Display(Name = "Student's last update date")]
         public DateTime LastUpdatedAt { get; set; }
 
+        [Display(Name = "Student's recorded grades")]
+        public List<Grade> Grades { get; set; }
+
+        [Display(Name = "Student's recorded attendances")]
+        public List<Attendance> Attendances { get; set; }
+
         public Student()
         {
             CreatedAt = DateTime.Now;
