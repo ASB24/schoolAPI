@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace classAPI.Models
 {
@@ -23,9 +24,11 @@ namespace classAPI.Models
         public string Class { get; set; }
 
         [Display(Name = "Student's Creation Date")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Student's Last Update Date")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdatedAt { get; set; }
 
         [Display(Name = "Student's Recorded Grades")]
@@ -33,11 +36,5 @@ namespace classAPI.Models
 
         [Display(Name = "Student's Recorded Attendances")]
         public List<Attendance> Attendances { get; set; }
-
-        public Student()
-        {
-            CreatedAt = DateTime.Now;
-            LastUpdatedAt = DateTime.Now;
-        }
     }
 }
