@@ -13,8 +13,20 @@ namespace classAPI.Models
         [Display(Name = "Is Present?"), Required(ErrorMessage = "Provide a valid boolean for whether the student was present or not")]
         public bool Grade { get; set; }
 
+        [Display(Name = "Creation date of attendance")]
+        public DateTime CreatedAt { get; set; }
+
+        [Display(Name = "Attendance's last update date")]
+        public DateTime LastUpdatedAt { get; set; }
+
         [Display(Name = "Student's ID"), Required(ErrorMessage = "Provide a valid Student ID")]
         public int StudentID { get; set; }
         public Student Student { get; set; }
+
+        public AttendanceList()
+        {
+            CreatedAt = DateTime.Now;
+            LastUpdatedAt = DateTime.Now;
+        }
     }
 }

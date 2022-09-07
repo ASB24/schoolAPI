@@ -18,5 +18,14 @@ namespace classAPI.Models
 
         [Display(Name = "Student's addition date")]
         public DateTime CreatedAt { get; set; }
+
+        [Display(Name = "Student's last update date")]
+        public DateTime LastUpdatedAt { get; set; }
+
+        public Student()
+        {
+            CreatedAt = DateTime.Now;
+            LastUpdatedAt = DateTime.Now;
+        }
     }
 }
