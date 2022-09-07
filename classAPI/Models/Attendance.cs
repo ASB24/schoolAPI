@@ -16,7 +16,7 @@ namespace classAPI.Models
 
         [Display(Name = "Is Present?")]
         [Required(ErrorMessage = "Provide a valid boolean for whether the student was present or not")]
-        public bool Grade { get; set; }
+        public bool IsPresent { get; set; }
 
         [Display(Name = "Attendance's Creation Date")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

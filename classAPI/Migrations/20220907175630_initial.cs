@@ -33,7 +33,7 @@ namespace schoolAPI.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AttendanceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Grade = table.Column<bool>(type: "bit", nullable: false),
+                    IsPresent = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
                     LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
                     StudentID = table.Column<int>(type: "int", nullable: false)
