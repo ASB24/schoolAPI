@@ -5,7 +5,7 @@ namespace classAPI.Models
     public class Attendance
     {
         [Key, Display(Name = "Attendance ID")]
-        public int AttendanceID { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Attendance date"), Required(ErrorMessage = "Provide a valid for the attendance list date")]
         public DateTime AttendanceDate { get; set; }

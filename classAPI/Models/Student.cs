@@ -5,7 +5,7 @@ namespace classAPI.Models
     public class Student
     {
         [Key, Display(Name = "Student's ID")]
-        public int StudentID { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Student's first name")]
         [StringLength(128, ErrorMessage = "Student's first name must be shorter than 128 characters")]
