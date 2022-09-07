@@ -30,11 +30,5 @@ namespace classAPI.Models
         [Display(Name = "Student's Last Update Date")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdatedAt { get; set; }
-
-        [Display(Name = "Student's Recorded Grades")]
-        public List<Grade> Grades { get; set; }
-
-        [Display(Name = "Student's Recorded Attendances")]
-        public List<Attendance> Attendances { get; set; }
     }
 }
