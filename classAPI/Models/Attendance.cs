@@ -19,7 +19,8 @@ namespace classAPI.Models
         [Display(Name = "Attendance's last update date")]
         public DateTime LastUpdatedAt { get; set; }
 
-        [Display(Name = "Student's ID"), Required(ErrorMessage = "Provide a valid Student ID")]
+        [Display(Name = "Student's ID")]
+        [Required(ErrorMessage = "Provide a valid Student ID")]
         public int StudentID { get; set; }
         [Display(Name = "Student of attendance")]
         public Student Student { get; set; }
