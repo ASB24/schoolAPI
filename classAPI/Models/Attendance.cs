@@ -2,7 +2,7 @@
 
 namespace classAPI.Models
 {
-    public class AttendanceList
+    public class Attendance
     {
         [Key]
         public int AttendanceID { get; set; }
@@ -23,7 +23,7 @@ namespace classAPI.Models
         public int StudentID { get; set; }
         public Student Student { get; set; }
 
-        public AttendanceList()
+        public Attendance()
         {
             CreatedAt = DateTime.Now;
             LastUpdatedAt = DateTime.Now;
