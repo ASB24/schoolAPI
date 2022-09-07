@@ -18,10 +18,10 @@ namespace classAPI.Models
         [Required(ErrorMessage = "Provide a score for the grade")]
         public int GradeScore { get; set; }
 
-        [Display(Name = "Grade's creation date")]
+        [Display(Name = "Grade's Creation Date")]
         public DateTime CreatedDate { get; set; }
 
-        [Display(Name = "Grade's last update date")]
+        [Display(Name = "Grade's Last Update Date")]
         public DateTime LastUpdatedAt { get; set; }
 
         [Display(Name = "Grade's Student ID")]

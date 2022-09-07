@@ -7,31 +7,31 @@ namespace classAPI.Models
         [Key, Display(Name = "Student's ID")]
         public int ID { get; set; }
 
-        [Display(Name = "Student's first name")]
+        [Display(Name = "Student's First Name")]
         [StringLength(128, ErrorMessage = "Student's first name must be shorter than 128 characters")]
         [Required(ErrorMessage = "Provide a first name for the student")]
         public string Name { get; set; }
 
-        [Display(Name = "Student's last name")]
+        [Display(Name = "Student's Last Name")]
         [StringLength(128, ErrorMessage = "Student's last name must be shorter than 128 characters")]
         [Required(ErrorMessage = "Provide a last name for the student")]
         public string LastName { get; set; }
 
-        [Display(Name = "Student's class")]
+        [Display(Name = "Student's Class")]
         [StringLength(5, ErrorMessage = "Class name must be shorter than 5 characters")]
         [Required(ErrorMessage = "Provide a class for the student")]
         public string Class { get; set; }
 
-        [Display(Name = "Student's addition date")]
+        [Display(Name = "Student's Creation Date")]
         public DateTime CreatedAt { get; set; }
 
-        [Display(Name = "Student's last update date")]
+        [Display(Name = "Student's Last Update Date")]
         public DateTime LastUpdatedAt { get; set; }
 
-        [Display(Name = "Student's recorded grades")]
+        [Display(Name = "Student's Recorded Grades")]
         public List<Grade> Grades { get; set; }
 
-        [Display(Name = "Student's recorded attendances")]
+        [Display(Name = "Student's Recorded Attendances")]
         public List<Attendance> Attendances { get; set; }
 
         public Student()
