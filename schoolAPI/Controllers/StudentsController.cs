@@ -1,8 +1,8 @@
-﻿using classAPI.Models;
+﻿using schoolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace classAPI.Controllers
+namespace schoolAPI.Controllers
 {
     [Route("api/[controller]")] //Hardcoded
     [ApiController]

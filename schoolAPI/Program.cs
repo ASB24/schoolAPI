@@ -1,4 +1,4 @@
-using classAPI.Models;
+using schoolAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

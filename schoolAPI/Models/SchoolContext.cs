@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace classAPI.Models
+namespace schoolAPI.Models
 {
     public class SchoolContext : DbContext
     {
