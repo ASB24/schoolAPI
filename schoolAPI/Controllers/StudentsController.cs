@@ -52,6 +52,8 @@ namespace schoolAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
+            student.CreatedAt = DateTime.Now;
+            student.LastUpdatedAt = DateTime.Now;
             schoolContext.Students.Add(student);
             await schoolContext.SaveChangesAsync();
 
