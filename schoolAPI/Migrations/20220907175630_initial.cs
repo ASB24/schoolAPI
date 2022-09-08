@@ -18,8 +18,8 @@ namespace schoolAPI.Migrations
                     Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Class = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
-                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now)
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
+                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString())
                 },
                 constraints: table =>
                 {
@@ -34,8 +34,8 @@ namespace schoolAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AttendanceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsPresent = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
-                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
+                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
                     StudentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -57,8 +57,8 @@ namespace schoolAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Subject = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     GradeScore = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
-                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
+                    LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
                     StudentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
