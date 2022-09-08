@@ -1,8 +1,6 @@
 ﻿using schoolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 
 namespace schoolAPI.Controllers
 {
@@ -42,8 +40,6 @@ namespace schoolAPI.Controllers
             var student = await schoolContext.Students.FindAsync(id);
             if(student == null) return NotFound();
 
-            
-
             return student;
         }
 
@@ -62,7 +58,7 @@ namespace schoolAPI.Controllers
 
         //PUT: api/Students/{id}
         [HttpPut]
-        public async Task<IActionResult> PutStudent(int id, Student student)
+        public async Task<IActionResult> PutStudent(Student student)
         {
             if (id != student.ID) return BadRequest();
 
@@ -75,7 +71,7 @@ namespace schoolAPI.Controllers
             }
             catch( DbUpdateConcurrencyException ex )
             {
-                if (!StudentExists(id))
+                if (!StudentExists(student.ID))
                 {
                     return NotFound();
                 }
