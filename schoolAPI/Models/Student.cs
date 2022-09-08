@@ -24,11 +24,9 @@ namespace schoolAPI.Models
         public string Class { get; set; }
 
         [Display(Name = "Student's Creation Date")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Student's Last Update Date")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdatedAt { get; set; }
     }
 }
