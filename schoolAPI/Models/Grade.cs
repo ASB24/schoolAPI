@@ -20,11 +20,9 @@ namespace schoolAPI.Models
         public int GradeScore { get; set; }
 
         [Display(Name = "Grade's Creation Date")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Grade's Last Update Date")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdatedAt { get; set; }
 
         [Display(Name = "Grade's Student ID")]
