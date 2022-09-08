@@ -86,5 +86,19 @@ namespace schoolAPI.Controllers
             return NoContent();
         }
 
+        //DELETE: api/Students/{id}
+        [HttpDelete]
+        public async Task<IActionResult> DeleteStudent(int id)
+        {
+            if (schoolContext.Students == null) return NotFound();
+
+            var student = await schoolContext.Students.FindAsync(id);
+            if (student == null) return NotFound();
+
+            schoolContext.Students.Remove(student);
+            await schoolContext.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
