@@ -39,6 +39,19 @@ namespace classAPI.Controllers
             var student = await schoolContext.Students.FindAsync(id);
             if(student == null) return NotFound();
 
+            
+
+            return student;
+        }
+
+        // TODO: rest of endpoints and endpoints for grades and attendance
+        //POST: api/students
+        [HttpPost]
+        public async Task<ActionResult<Student>> PostStudent(Student student)
+        {
+            schoolContext.Students.Add(student);
+            await schoolContext.SaveChangesAsync();
+
             return student;
         }
     }
