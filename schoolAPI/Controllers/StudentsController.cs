@@ -1,14 +1,17 @@
 ﻿using schoolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using System.Security.Cryptography;
 
 namespace schoolAPI.Controllers
 {
-    [Route("api/[controller]")] //Hardcoded
+    [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : Controller
     {
         private readonly SchoolContext schoolContext;
+        private bool StudentExists(int id) { return (schoolContext.Students?.Any(s => s.ID == id)).GetValueOrDefault(); }
 
         public StudentsController(SchoolContext schoolContext)
         {
@@ -45,7 +48,7 @@ namespace schoolAPI.Controllers
         }
 
         // TODO: rest of endpoints and endpoints for grades and attendance
-        //POST: api/students
+        //POST: api/Students
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
@@ -53,6 +56,34 @@ namespace schoolAPI.Controllers
             await schoolContext.SaveChangesAsync();
 
             return student;
+        }
+
+        //PUT: api/Students/{id}
+        [HttpPut]
+        public async Task<IActionResult> PutStudent(int id, Student student)
+        {
+            if (id != student.ID) return BadRequest();
+
+            schoolContext.Entry(student).State = EntityState.Modified;
+
+            try
+            {
+                student.LastUpdatedAt = DateTime.Now;
+                await schoolContext.SaveChangesAsync();
+            }
+            catch( DbUpdateConcurrencyException ex )
+            {
+                if (!StudentExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw ex;
+                }
+            }
+
+            return NoContent();
         }
     }
 }
