@@ -11,6 +11,8 @@ namespace schoolAPI.Models
         public int ID { get; set; }
 
         [Display(Name = "Attendance Date")]
+        [DataType(DataType.Date)]
+        [Column(TypeName = "Date")]
         [Required(ErrorMessage = "Provide a valid for the attendance list date")]
         public DateTime AttendanceDate { get; set; }
 
@@ -18,16 +20,15 @@ namespace schoolAPI.Models
         [Required(ErrorMessage = "Provide a valid boolean for whether the student was present or not")]
         public bool IsPresent { get; set; }
 
+        [ForeignKey("Student")]
+        [Required(ErrorMessage = "Enter a valid Student ID")]
+        [Display(Name = "Student's Student ID")]
+        public int StudentID { get; set; }
+
         [Display(Name = "Attendance's Creation Date")]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Attendance's Last Update Date")]
         public DateTime LastUpdatedAt { get; set; }
-
-        [Display(Name = "Student's ID")]
-        [Required(ErrorMessage = "Provide a valid Student ID")]
-        public int StudentID { get; set; }
-        [Display(Name = "Student of Attendance")]
-        public Student Student { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace schoolAPI.Models
 {
@@ -19,17 +20,16 @@ namespace schoolAPI.Models
         [Required(ErrorMessage = "Provide a score for the grade")]
         public int GradeScore { get; set; }
 
+        [ForeignKey("Student")]
+        [Required(ErrorMessage = "Enter a valid Student ID")]
+        [Display(Name = "Grade's Student ID")]
+        public int StudentID { get; set; }
+
         [Display(Name = "Grade's Creation Date")]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Grade's Last Update Date")]
         public DateTime LastUpdatedAt { get; set; }
-
-        [Display(Name = "Grade's Student ID")]
-        public int StudentID { get; set; }
-
-        [Display(Name = "Grade's Student")]
-        public Student Student { get; set; }
 
     }
 }
