@@ -52,7 +52,8 @@ namespace schoolAPI.Controllers
         {
             var student = await schoolContext.Students.FindAsync(grade.StudentID);
             if (student == null) return NotFound("Student with provided Student ID not found");
-            
+
+            grade.Literal = Grade.CalculateLiteral(grade.GradeScore);
             grade.CreatedAt = DateTime.Now;
             grade.LastUpdatedAt = DateTime.Now;
 
@@ -72,6 +73,7 @@ namespace schoolAPI.Controllers
 
             try
             {
+                grade.Literal = Grade.CalculateLiteral(grade.GradeScore);
                 grade.LastUpdatedAt = DateTime.Now;
                 await schoolContext.SaveChangesAsync();
             }

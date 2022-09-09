@@ -57,6 +57,7 @@ namespace schoolAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Subject = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     GradeScore = table.Column<int>(type: "int", nullable: false),
+                    Literal = table.Column<char>(type: "char", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
                     LastUpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: DateTime.Now.ToString()),
                     StudentID = table.Column<int>(type: "int", nullable: false)
