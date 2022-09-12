@@ -30,19 +30,19 @@ namespace schoolAPI.Controllers
 
         //GET: api/Grades/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Grade>> GetGrade(int id)
+        public async Task<ActionResult<IEnumerable<Grade>>> GetGrade(int id)
         {
             if (schoolContext.Grades == null)
             {
                 return NotFound();
             }
 
-            var grade = await schoolContext.Grades.FindAsync(id);
-            if (grade == null) return NotFound();
+            var grades = await schoolContext.Grades.FromSqlRaw("select * from Grades where StudentID = "+id).ToListAsync();
+            if (grades == null) return NotFound();
 
 
 
-            return grade;
+            return grades;
         }
 
         // TODO: rest of endpoints and endpoints for grades and attendance
@@ -64,7 +64,7 @@ namespace schoolAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutGrade(Grade grade)
+        public async Task<ActionResult<Grade>> PutGrade(Grade grade)
         {
             var student = await schoolContext.Students.FindAsync(grade.StudentID);
             if (student == null) return NotFound("Student with provided Student ID not found");
@@ -89,7 +89,7 @@ namespace schoolAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return grade;
         }
 
         //DELETE: api/Grades/{id}
