@@ -46,6 +46,24 @@ namespace schoolAPI.Controllers
             return attendance;
         }
 
+        [HttpGet]
+        [Route("byDate")]
+        public async Task<ActionResult<IEnumerable<Attendance>>> GetAttendance(string date)
+        {
+            if (schoolContext.Attendances == null)
+            {
+                return NotFound();
+            }
+
+            date = date.Trim().Split('T')[0];
+
+            var attendances = await schoolContext.Attendances.FromSqlRaw(String.Format("select * from Attendances where AttendanceDate = {0}", date)).ToListAsync();
+            if (attendances == null) return NotFound();
+
+            return attendances;
+        }
+    
+
         //POST: api/Attendances
         [HttpPost]
         public async Task<ActionResult<Attendance>> PostAttendance(Attendance attendance)
