@@ -18,11 +18,6 @@ namespace schoolAPI.Models
         [Required(ErrorMessage = "Provide a last name for the student")]
         public string LastName { get; set; }
 
-        [Display(Name = "Student's Class")]
-        [StringLength(5, ErrorMessage = "Class name must be shorter than 5 characters")]
-        [Required(ErrorMessage = "Provide a class for the student")]
-        public string Class { get; set; }
-
         [Display(Name = "Student's Creation Date")]
         public DateTime CreatedAt { get; set; }
 
