@@ -14,12 +14,12 @@ namespace schoolAPI.Controllers
         {
             this.schoolContext = schoolContext;
         }
-        
+
         [HttpGet]
         [Route("grades")]
         public async Task<ActionResult<IEnumerable<View.GradeRow>>> GetRows()
         {
-            if(schoolContext.GradesView == null)
+            if (schoolContext.GradesView == null)
             {
                 return NotFound();
             }
@@ -34,7 +34,7 @@ namespace schoolAPI.Controllers
             {
                 return NotFound();
             }
-            return await schoolContext.AttendancesView.FromSqlRaw("select * from grades_view").ToListAsync();
+            return await schoolContext.AttendancesView.FromSqlRaw("select * from attendances_view").ToListAsync();
         }
     }
 }
